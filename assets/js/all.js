@@ -17,8 +17,8 @@ function addTodo() {
     checked: ''
   };
 
-  if (todo !== "") {
-    todoData.unshift(todo); // console.log(todoData) - 檢查自料是否有成功放入陣列裡
+  if (todo.txt !== "") {
+    todoData.unshift(todo); // console.log(todoData) - 檢查資料是否有成功放入陣列裡
 
     inputText.value = "";
   } // render(todoData)
@@ -46,8 +46,7 @@ var toggleStatus = "all"; // data-tab = all 全部狀態，也就是目前tab顯
 
 function changeTab(e) {
   //根據點到的data而去做切換toggleStatus
-  // 也可以這樣寫，toggleStatus = e.target.dataset.tab
-  toggleStatus = e.target.getAttribute("data-tab");
+  toggleStatus = e.target.dataset.tab;
   var tabs = document.querySelectorAll("#tab li");
   tabs.forEach(function (item) {
     item.classList.remove("active");
@@ -64,8 +63,7 @@ todoList.addEventListener("click", deleteAndChecked); //要做刪除切換都要
 function deleteAndChecked(e) {
   //離點到部分，最靠近的li，並取得這個距離最近li裡的id值
   var id = e.target.closest("li").dataset.id; //這個id的值是由`new Date().getTime()`產出
-
-  console.log(id);
+  // console.log(id);
 
   if (e.target.getAttribute("class") === "delete") {
     // 由於delete是 a 標籤，我們先它的預設取消
@@ -88,12 +86,10 @@ function deleteAndChecked(e) {
         //if (todoData[index].checked == 'checked')
         if (item.checked === "checked") {
           //我們就把他的狀態拿掉，也就是無狀態的值
-          item.checked = "";
-          console.log(todoData);
+          item.checked = ""; // console.log(todoData);
         } else {
           //如果現在是沒有被checked，我們就幫它加上checked
-          item.checked = "checked";
-          console.log(todoData);
+          item.checked = "checked"; // console.log(todoData);
         }
       }
     });
@@ -139,7 +135,7 @@ deleteBtn.addEventListener("click", function (e) {
   e.preventDefault(); //篩選出 沒有checked的資料，並存留。
 
   todoData = todoData.filter(function (item) {
-    item.checked !== "checked";
+    return item.checked != "checked";
   });
   updateList();
 }); // 7. 優化（keypress)
