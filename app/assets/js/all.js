@@ -138,15 +138,15 @@ function updateList (){
     showData = todoData;
   } else if (toggleStatus === "work") {
     //由於work裡面的事項是還沒有被打勾，所以裡面checked屬性會是空的
-    showData = todoData.filter((i) => i.checked === "");
+    showData = todoData.filter((item) => item.checked === "");
   } else {
-    showData = todoData.filter((i) => i.checked === "checked");
+    showData = todoData.filter((item) => item.checked === "checked");
   }
 
   //footer部分，顯示待完成項目，也在這裡同時一起完成
 
   const workNum = document.querySelector("#workNum")
-  let todoLength = todoData.filter(i=>i.checked === "")
+  let todoLength = todoData.filter(item=>item.checked === "")
 
   workNum.textContent =todoLength.length;
 
@@ -167,8 +167,9 @@ deleteBtn.addEventListener("click",function(e){
   e.preventDefault();
 
   //篩選出 沒有checked的資料，並存留。
-  todoData = todoData.filter((i)=>{i.checked !== "checked"});
+  todoData = todoData.filter((item)=>{item.checked !== "checked"});
   updateList();
+
 })
 
 // 7. 優化（keypress)
