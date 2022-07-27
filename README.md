@@ -11,7 +11,7 @@ Use JavaScript to create a todo list
 - Gulp.js 
 - EJS (Embedded JavaScript templating) 
 
-* 💡 Note: The Team Lead from the study group has already set up the project with the tools listed above before members began to code. This was because the goal of the study group was for members to focus on using JavaScript to create a todo list*
+💡 *Note: The Team Lead from the study group has already set up the project with the tools listed above before members began to code. This was because the goal of the study group was for members to focus on using JavaScript to create a todo list*
 
 ## Demo
 [Demo](https://subarashii-huch09.github.io/JS-Final-To-Do-List)
